@@ -16,18 +16,25 @@ void updateSerial() {
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
+  mySerial.setRxBufferSize(256);
 
   mySerial.begin(9600);
+
 
   Serial.println("Initializing...");
   delay(1000);
   mySerial.println("AT");
   updateSerial();
-  mySerial.println("AT+CSQ");     // Signal quality test, from 0-31, 31 is best
+  delay(2000);
+  mySerial.println("AT+CMGF=1");     // Configure Text Mode
+  //updateSerial();
+  //mySerial.println("AT+CMGS=\"+254724487933\"");    // Number to be texted
+  //updateSerial();
+  //mySerial.print("Yoo, I exist, I am sentient!");  // check whether SIM is registered
+  //updateSerial();
+  //mySerial.write(26);
   updateSerial();
-  mySerial.println("AT+CCID");    // read SIM info to confirm if it's plugged in
-  updateSerial();
-  mySerial.println("AT+CREG?");  // check whether SIM is registered
+  mySerial.println("AT+CNMI=1,2,0,0,0");   // DECIDES HOW NEWLY RECEIVED sms MESSAGES SHOULD BE HANDLED
   updateSerial();
 }
 
