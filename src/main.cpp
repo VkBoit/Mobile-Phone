@@ -16,7 +16,6 @@ void updateSerial() {
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
-  mySerial.setRxBufferSize(256);
 
   mySerial.begin(9600);
 
