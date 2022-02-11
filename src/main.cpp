@@ -27,7 +27,7 @@ void setup() {
   delay(2000);
   mySerial.println("AT+CMGF=1");     // Configure Text Mode
   //updateSerial();
-  //mySerial.println("AT+CMGS=\"+254724487933\"");    // Number to be texted
+  //mySerial.println("AT+CMGS=\"+2547222000000\"");    // Number to be texted
   //updateSerial();
   //mySerial.print("Yoo, I exist, I am sentient!");  // check whether SIM is registered
   //updateSerial();
